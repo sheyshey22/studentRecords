@@ -15,38 +15,28 @@ function Student(name, techSkill, lifeSkill) {
             $('#result').append('<p>Name: '+allStudents[i].name+'</p>'+'<p>TechSkill: '+allStudents[i].techSkill+'</p>'+
               '<p>lifeSkill: '+allStudents[i].lifeSkill+'</p>');
             }
-    }
-    // this.showData=function(student){
-    //     let content =`
-    //         <div class = "estudiante">
-    //             <h3 class="text-uppercase">${Student.name}</h3>
-    //             <strong>Tech Skills:</strong> ${Student.techSkill}%<br>
-    //             <strong>Life Skills:</strong> ${Student.lifeSkill}%<br>
-    //             <strong>Status:</strong> Active<br>
-    //         </div>
-    //     `;
-    //     result.innerHTML=content;
-    //     return content;
-    // }
-    this.showList=function printAll(all) {
-        all.map(element=>{
-            $('#result').append('<p>Name: '+element.name+'</p>'+'<p>TechSkills: '+element.techSkill+'</p>'+'<p>LifeSkills: '+element.lifeSkill+'</p>');
-        });
-    }
-    this.unicornio=function(allStudents){
+    },
+    this.showList=function() {
+        function printAll(all){ 
+            all.map(element=>{
+                $('#result').append('<p>Name: '+element.name+'</p>'+'<p>TechSkills: '+element.techSkill+'</p>'+'<p>LifeSkills: '+element.lifeSkill+'</p>');
+            });
+        }
+    },
+    this.unicornio=function(){
         $("#result").empty();
-        var unicornio=allStudents.filter(function(e) {
-        return e.techSkill >70
+        var unicornio=allStudents.filter(function(element) {
+        $('#result').append('<p>Name: '+element.name+'</p>'+'<p>TechSkills: '+element.techSkill+'</p>'+'<p>LifeSkills: '+element.lifeSkill+'</p>');
+        return element.techSkill >70
         });
-    printAll(unicornio);
-    }    
-    this.agile=function(allStudents){
+    },    
+    this.agile=function(){
         $("#result").empty();
-        var agile=allStudents.filter(function (e) {
-        return e.TechPoints >70
+        var agile=allStudents.filter(function (element) {
+        $('#result').append('<p>Name: '+element.name+'</p>'+'<p>TechSkills: '+element.techSkill+'</p>'+'<p>LifeSkills: '+element.lifeSkill+'</p>');
+        return element.TechPoints >70
         });
-    printAll(agile);
-    }    
+    }, 
     this.init=function(){
         $("#add").click( () => this.saveData() );
         $("#printAll").click( () => this.showList(allStudents));
